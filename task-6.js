@@ -1,21 +1,25 @@
 let input;
 const numbers = [];
 let total = 0;
-input = Number(input);
-input = prompt('Введите число:');
-numbers.push(input);
-console.log(numbers);
 
-//   eslint-disable-next-line
-for (const number of numbers) {
-  if (input === 0) {
-    alert('Отменено пользователем!');
+while (true) {
+  input = prompt('Введите число:');
+
+  if (input === null) {
+    console.log('Отменено пользователем!');
     break;
-  } else if (Number.isNaN(number) === true) {
+  }
+
+  input = Number(input);
+
+  if (Number.isNaN(input) === true) {
     alert('Было введено не число, попробуйте еще раз');
-  } else {
-    total = numbers.join(', ');
+  }
+
+  if (Number.isNaN(input) === false) {
+    numbers.push(input);
     total += input;
-    console.log(`Общая сумма чисел равна ${total}`);
   }
 }
+
+console.log(`Общая сумма чисел равна ${total}`);
